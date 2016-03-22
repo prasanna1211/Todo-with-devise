@@ -1,0 +1,11 @@
+<h1> WELCOME TO HOME PAGE <h1>
+
+<% if user_signed_in? %>
+	Signed in as <%= current_user.email %>. <br>
+	<%= link_to "Create new task", new_task_path %> <br>
+	<%= link_to "Show all tasks", tasks_path %> <br>
+	<%= link_to "Sign out", destroy_user_session_path, method: :delete %> 
+<%else%> 
+	<%= link_to "Sign in", new_user_session_path, method: :get %> 
+	<br>
+<%end%>

@@ -1,0 +1,19 @@
+Showing Tasks of <%= current_user.email %> <br> <br>
+Sort by
+<%= form_tag(tasks_path, :method => :get) do %>
+    <%= select_tag(:filter, options_for_select(["Priority", "Latest"]), {:prompt => "Sort events", onchange: "this.form.submit();", :class => "form-control filter-bar dropdown-toggle"})%>
+<% end %>
+
+<% @tasks.each do|t| %>
+	<p> 
+	<b> <u> Title: </u> </b> <%= t.title %> 
+	<b> <u> Description: </u> </b> <%= t.description %> 
+	<b> <u> Priority: </u> </b> <%= t.priority %> 
+	<b> <u> Created_at </u> </b> <%= t.created_at %>
+
+	<%= link_to "Edit", edit_task_path(t) %>	
+	<%= link_to "Delete", task_path(t), method: :delete%>
+	</p>
+<% end %>
+<%= link_to "Create New Task", new_task_path %> <br>
+<%= link_to "Home page", root_path %>
