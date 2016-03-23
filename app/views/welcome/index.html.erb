@@ -1,10 +1,12 @@
 <h1> WELCOME TO HOME PAGE <h1>
 
 <% if user_signed_in? %>
-	Signed in as <%= current_user.email %>. <br>
-	<%= link_to "Create new task", new_task_path %> <br>
-	<%= link_to "Show all tasks", tasks_path %> <br>
-	<%= link_to "Sign out", destroy_user_session_path, method: :delete %> 
+	Signed in as <%= current_user.email %>. <br><br><br>
+	<div class = "btn-group">
+	<button type = "button" class = "btn btn-primary"> <%= link_to "Create new task", new_task_path, class: "btn btn-info" %> </button>
+	<button type = "button" class = "btn btn-primary"> <%= link_to "Show all tasks", tasks_path, class: "btn btn-info"%> </button>
+	<button type = "button" class = "btn btn-primary"> <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-info"  %> </button>
+	</div>
 <%else%> 
 	<%= link_to "Sign in", new_user_session_path, method: :get %> 
 	<br>
