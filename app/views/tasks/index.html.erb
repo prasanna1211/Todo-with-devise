@@ -11,9 +11,11 @@ Sort by
 	<b> <u> Priority: </u> </b> <%= t.priority %> 
 	<b> <u> Created_at </u> </b> <%= t.created_at %>
 
-	<%= link_to "Edit", edit_task_path(t) %>	
-	<%= link_to "Delete", task_path(t), method: :delete%>
+	<%= link_to "Edit", edit_task_path(t), class: 'btn btn-info btn-xs' %>	
+	<%= link_to "Delete", task_path(t), method: :delete, class: 'btn btn-danger btn-xs'%>
 	</p>
 <% end %>
-<%= link_to "Create New Task", new_task_path %> <br>
+<%= link_to new_task_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Task
+<% end %> <br>
 <%= link_to "Home page", root_path %>
